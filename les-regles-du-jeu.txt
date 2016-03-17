@@ -1,0 +1,37 @@
+La règle du jeu de la descente.
+
+Matériel : Un tapis de jeu, un jeu de tarot (78 cartes) et deux joueurs
+Version avec joueur ordinateur à venir.
+
+Le but du jeu : ne plus avoir de carte dans son paquet.
+
+La distribution : Les cartes sont distribuées (face cachée) une à une à chaque joueur avec 5 cartes
+au centre (face visible) ni la 1er carte ni la dernière carte ne peuvent être placées au centre.
+
+Les règles de placement des cartes :
+- Sur le côté gauche du tapis les cartes sont rangées automatiquement par couleur dans l'ordre croissant.
+      Carreau, Coeur, Trèfle, Pique en partant de l'AS jusqu'au roi
+      Les atouts de l'excuse au 21
+- Au centre du jeu (les 5 paquets) et sur le paquet de l'adversaire (carte visible):
+      Carreau, Coeur, Trèfle, Pique. En inversant les couleurs (noir <> rouge) et avec la valeur juste inférieure
+            Exemple : sur un 10 de pique je peux mettre un 9 de carreau ou de coeur.
+      Pour l'atout je peux mettre un atout mais de valeur juste inférieure
+            Exemple sur le 19 d'atout je peux mettre le 18 d'atout.
+Important : 
+Il est possible de venir prendre une carte au milieu d'un paquet du centre pour la mettre sur le paquet de son adversaire,
+l'ensemble des cartes plus petites viendront se positionner sur le paquet de l'adversaire.
+      Exemple: Sur un paquet du centre j'ai une suite de carte du Roi de Coeur au 7 de Trèfle. Mon adversaire retourne 
+               un Valet de Trèfle je vais pouvoir prendre le 10 de Coeur pour le poser sur le paquet face de mon adversaire
+               et les cartes 9, 8 et 7 vont suivre.
+Il n'est pas possible de mettre des atouts sur le paquet de son adversaire tant que l'excuse n'est pas positionnée sur le paquet de droite.
+
+Le jeu : Chaque joueur à la main à tour de rôle (visible par une main sur le tapis) c'est le joueur SUD qui commence.
+Tant qu'il n'a pas remis la carte de sa main sur son paquet de carte de face il garde la main et peut changer les cartes du jeu en suivant
+les règles de placement énoncées ci-dessus.
+Une fois qu'il n'a plus de carte dans son paquet (toutes les cartes en face visible) il faut re-mélanger les cartes avec un clic droit sur le
+paquet de carte visible. Le mélange est fait par une carte au-dessus une carte au-dessous jusqu'à la dernière carte.
+Quand un trou est fait : Pas de carte dans un paquet du centre. Le joueur qui a la main peut mettre n'importe quelle carte visibles des
+paquets du centre, des ses paquets ou du paquet de son adversaire. On ne peut pas reprendre une carte des paquet de gauche.
+
+
+

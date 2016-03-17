@@ -1,0 +1,6 @@
+La Descente
+Copyright Michel Cavaud 2015.
+Tous droits réservés.
+Version 1.O Nov 2015
+raspberrypi.gard@gmail.com
+http://rasp-pi.ici.st/
