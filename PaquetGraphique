@@ -1,0 +1,31 @@
+# -*- coding: cp1252 -*-
+from JeuCartesGraphiques import JeuCartesGraphiques
+from pygame import *
+
+__metaclass__ = type
+
+class PaquetGraphique(JeuCartesGraphiques, Rect):
+	def __init__(self, **args):
+		
+		self.img = image.load("images/carte-taille-paquet.jpg").convert()
+		
+		Rect.__init__(self, self.img.get_rect(**args))
+		super(PaquetGraphique, self).__init__(vide = True)
+		
+	def ajouterCarte(self, carte):
+		self.cartes.append(carte)
+		
+	def ajouterCarteDebut(self, carte):
+		self.cartes.insert(0, carte)
+		
+	def __add__(self, carte):
+		self.ajouterCarte(carte)
+	
+	@property
+	def pos(self):
+		return self.topleft
+
+	@pos.setter
+	def pos(self,coord):
+		self.topleft = coord
+	 
