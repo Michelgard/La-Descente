@@ -1,0 +1,103 @@
+# -*- coding: cp1252 -*-
+
+from CarteGraphique import CarteGraphique
+import pygame
+import random
+
+__metaclass__ = type
+
+class JeuCartesGraphiques:
+	"""Création d'un jeu de tarot complet"""
+	
+	def __init__(self, vide=False, fixe=False, fenetre = False):
+		self.fixe = fixe
+		self.fenetre = fenetre
+		self.cartes = []
+		if not vide:
+			if fixe==False:
+				for val in range(1, 15):
+					for coul in range(4):
+						self.cartes.append(CarteGraphique(pygame.image.load("images/Carte-" + str(
+							val) + "-" +  str(coul) +".gif").convert(), valeur = val, couleur = coul))
+					
+				for val in range(1, 22):
+						self.cartes.append(CarteGraphique(pygame.image.load("images/Carte-" + str(
+							val) + "-" +  str(4) +".gif").convert(), valeur = val, couleur = 4))
+				
+				self.cartes.append(CarteGraphique(pygame.image.load("images/Carte-" + str(
+							0) + "-" +  str(5) +".gif").convert(), valeur = 1, couleur = 5))
+			else:
+				self.cartes.append(CarteGraphique(img = pygame.image.load("images/tapis.jpg").convert()))
+				self.cartes[0].placer(fenetre = self.fenetre, topleft=(50,25))
+				
+				"""Les 2 paquet des joueurs de dos """
+				self.cartes.append(CarteGraphique(img = pygame.image.load("images/dos-carte.jpg").convert()))
+				self.cartes.append(CarteGraphique(img = pygame.image.load("images/dos-carte.jpg").convert()))
+				
+				self.cartes.append(CarteGraphique(img = pygame.image.load("images/carte-verte-nord.gif").convert()))
+				
+				self.cartes.append(CarteGraphique(img = pygame.image.load("images/carte-verte-sud.gif").convert()))
+				self.cartes[3].placer(fenetre = self.fenetre, topleft=(400,31))
+				self.cartes[4].placer(fenetre = self.fenetre, topleft=(520,443))
+				
+				"""5 carte blanches au milieu"""
+				debut = 302
+				for i in range(1,6):
+					self.cartes.append(CarteGraphique(img =pygame.image.load( "images/carte-blanche.gif").convert()))
+					self.cartes[4 + i].placer(fenetre = self.fenetre, topleft=(debut,180))
+					debut += 100
+				
+				"""Placement des 5 cartes suivant couleurs"""
+				listeImagesVierges = ("images/carreau-vierge.gif", "images/coeur-vierge.gif", "images/trefle-vierge.gif", 
+					"images/pique-vierge.gif", "images/atout-vierge.gif" )
+				debut, j = 102, 0
+				for i in listeImagesVierges:
+					self.cartes.append(CarteGraphique(img = pygame.image.load(i).convert()))
+					self.cartes[10 + j].placer(fenetre = self.fenetre, topleft=(55, debut))
+					j += 1
+					debut += 80
+				
+				self.cartes.append(CarteGraphique(img = pygame.image.load("images/image-menu.gif").convert()))
+				self.cartes[15].placer(fenetre = self.fenetre, topleft=(10,2))
+	
+	def __str__(self):
+		cartes_du_jeu = ""
+		for carte in self.cartes:
+			if cartes_du_jeu == "":
+				cartes_du_jeu = str(carte)
+			else:
+				cartes_du_jeu += ", " + str(carte)
+		return cartes_du_jeu
+		
+	def melanger(self):
+		random.shuffle(self.cartes)
+		
+	def tirerCarte(self):
+		try:
+			return self.cartes.pop(0)
+		except IndexError as erreur:
+			return None
+			
+	def tirerCarteFace(self):
+		try:
+			indice = len(self.cartes)
+			return self.cartes.pop(indice -1)
+		except IndexError as erreur:
+			return None
+			
+	def premiereCarte(self):
+		try:
+			return self.cartes[0]
+		except IndexError as erreur:
+			return None
+	
+	def derniereCarte(self):
+		try:
+			indice = len(self.cartes)
+			return self.cartes[indice -1]
+		except IndexError as erreur:
+			return None	
+	
+	def __iter__(self):
+		for i in self.cartes:
+			yield i
